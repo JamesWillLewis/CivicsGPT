@@ -5,10 +5,11 @@ import openai
 GPT_MODEL = "gpt-3.5-turbo"
 MAX_TOKENS_DEFAULT = 16
 TEMPERATURE_DEFAULT = 0.2
+LANG_DEFAULT = "English"
 INITIAL_PROMPT = "Ask me a question"
 NEXT_PROMPT = "Ask me another question"
 SYSTEM_MESSAGE = "You are asking the user US Civics questions." \
-                 "After the user responds, check their answer and ask another question."
+                 "After the user responds, check their answer and ask another question." \
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -22,6 +23,12 @@ if len(sys.argv) > 3:
 print(f"You asked: '{prompt}' with args: {completion_args}")
 print(f'Using model {GPT_MODEL}')
 print(f'Type q to quit')
+
+language = input('What language would you prefer?\n')
+language = language if language is not None else LANG_DEFAULT
+print(f'Ok, speaking in {language}.')
+
+SYSTEM_MESSAGE = SYSTEM_MESSAGE + f'Speak in {language}'
 
 current_prompt = INITIAL_PROMPT
 
