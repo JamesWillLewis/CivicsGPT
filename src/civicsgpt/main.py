@@ -13,14 +13,15 @@ SYSTEM_MESSAGE = "You are asking the user US Civics questions." \
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-prompt = sys.argv[1] if len(sys.argv) > 1 else INITIAL_PROMPT
+prompt = INITIAL_PROMPT
+e
 completion_args = {}
+if len(sys.argv) > 1:
+    completion_args['temperature'] = float(sys.argv[1])
 if len(sys.argv) > 2:
-    completion_args['temperature'] = float(sys.argv[2])
-if len(sys.argv) > 3:
-    completion_args['max_tokens'] = int(sys.argv[3])
+    completion_args['max_tokens'] = int(sys.argv[2])
 
-print(f"You asked: '{prompt}' with args: {completion_args}")
+print(f"You're asking: '{prompt}' with args: {completion_args}")
 print(f'Using model {GPT_MODEL}')
 print(f'Type q to quit')
 
