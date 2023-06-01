@@ -1,1 +1,1 @@
-# FarmGPT
+# CivicsGPT

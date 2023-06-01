@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 src/farmgpt/main.py "$@"
+python3 src/civicsgpt/main.py "$@"
