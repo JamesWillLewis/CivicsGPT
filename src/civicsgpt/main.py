@@ -7,7 +7,8 @@ MAX_TOKENS_DEFAULT = 16
 TEMPERATURE_DEFAULT = 0.2
 INITIAL_PROMPT = "Ask me a question"
 NEXT_PROMPT = "Ask me another question"
-SYSTEM_MESSAGE = "You are asking US Civics questions, and checking the answer after the user replies. After the user responds, ask another question."
+SYSTEM_MESSAGE = "You are asking the user US Civics questions." \
+                 "After the user responds, check their answer and ask another question."
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
